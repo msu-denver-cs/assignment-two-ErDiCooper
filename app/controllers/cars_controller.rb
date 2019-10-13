@@ -15,10 +15,14 @@ class CarsController < ApplicationController
   # GET /cars/new
   def new
     @car = Car.new
+	@parts = Part.all
+	@make = Make.all
   end
 
   # GET /cars/1/edit
   def edit
+	@parts = Part.all
+	@make = Make.all
   end
 
   # POST /cars
@@ -69,6 +73,6 @@ class CarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:model, :vin, :make_id, :part_id)
+      params.require(:car).permit(:model, :vin, :make_id, :part_ids => [])
     end
 end
