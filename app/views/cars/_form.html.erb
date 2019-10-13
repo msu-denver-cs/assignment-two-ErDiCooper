@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :part_id %>
-    <%= form.text_field :part_id, id: :car_part_id %>
+	<%= f.label :part_id %><br>
+	<%= f.collection_select :part_id, part.order(:name),:id,:name, include_blank: true %>
   </div>
 
   <div class="actions">
