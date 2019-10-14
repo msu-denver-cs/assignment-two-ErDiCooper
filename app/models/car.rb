@@ -6,5 +6,4 @@ class Car < ApplicationRecord
   
   validates :vin, length: { is: 17}
   validates :model, length { in: 3..40}
-  validates :make, presence: true
 end
