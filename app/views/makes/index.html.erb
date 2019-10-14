@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/javascripts/AJAXSearch.js"></script>
 <p id="notice"><%= notice %></p>
 
 <h1>Makes</h1>
@@ -24,6 +25,20 @@
   </tbody>
 </table>
 
+<%= form_tag(search_makes_url, method: "get") do %>
+	<%= label_tag(:query, "Search for:") %>
+	<%= text_field_tag(:query) %>
+	<%= submit_tag("Search") %>
+<% end %>
+
 <br>
+<br/><div id="results"></div>
+
+<script>
+var QueryURL = "http://localhost:3000/books/search.json?query=";
+var ResultsDiv = "results";
+var Field = "name";
+var QueryTag = "query";
+</script>
 
 <%= link_to 'New Make', new_make_path %>

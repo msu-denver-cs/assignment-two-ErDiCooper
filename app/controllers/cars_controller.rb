@@ -18,6 +18,11 @@ class CarsController < ApplicationController
 	@parts = Part.all
 	@make = Make.all
   end
+  
+  def search
+	@cars = Car.where("name like ?", "%#{params[:query]}%")
+	render :index
+  end
 
   # GET /cars/1/edit
   def edit

@@ -16,6 +16,11 @@ class PartsController < ApplicationController
   def new
     @part = Part.new
   end
+  
+  def search
+	@Parts = Part.where("name like ?", "%#{params[:query]}%")
+	render :index
+  end
 
   # GET /parts/1/edit
   def edit
